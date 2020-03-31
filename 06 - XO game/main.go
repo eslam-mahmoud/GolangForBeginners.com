@@ -52,29 +52,20 @@ func main() {
 		win := false
 		for i := 0; i < 3; i++ {
 			// check rows
-			if xoBoard[i][0] == xoBoard[i][1] && xoBoard[i][1] == xoBoard[i][2] && xoBoard[i][2] != "" {
-				win = true
-				break
-			}
-			// check columns
-			if xoBoard[0][i] == xoBoard[1][i] && xoBoard[1][i] == xoBoard[2][i] && xoBoard[2][i] != "" {
-				win = true
-				break
+			if (xoBoard[i][0] == xoBoard[i][1] && xoBoard[i][1] == xoBoard[i][2] && xoBoard[i][2] != "") || (xoBoard[0][i] == xoBoard[1][i] && xoBoard[1][i] == xoBoard[2][i] && xoBoard[2][i] != "") {
+				fmt.Println("Game ended, winner is player:", player)
+				return
+				// we can use "break" or "return"
+				return
 			}
 		}
-		if xoBoard[0][0] == xoBoard[1][1] && xoBoard[1][1] == xoBoard[2][2] && xoBoard[2][2] != "" {
-			win = true
-		}
-		if xoBoard[0][2] == xoBoard[1][1] && xoBoard[1][1] == xoBoard[2][0] && xoBoard[2][0] != "" {
-			win = true
-		}
-		if win {
+		if (xoBoard[0][0] == xoBoard[1][1] && xoBoard[1][1] == xoBoard[2][2] && xoBoard[2][2] != "") ||  (xoBoard[0][2] == xoBoard[1][1] && xoBoard[1][1] == xoBoard[2][0] && xoBoard[2][0] != ""){
 			fmt.Println("Game ended, winner is player:", player)
 			// end the game and exit the app
 			// we can use "break" or "return"
-			break
+			return
 		}
-
+		
 		//Swap players
 		if player == "X" {
 			player = "O"
