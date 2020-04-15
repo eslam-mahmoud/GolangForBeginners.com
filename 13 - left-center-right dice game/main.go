@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main(){
+func main() {
 	fmt.Println("Welcome to LCR dice game :D")
 	g := new()
 
@@ -32,7 +32,7 @@ func main(){
 
 	turn := g.players[0]
 	for {
-		// check if player have tokens 
+		// check if player have tokens
 		// if not skip him
 		if turn.tokens == 0 {
 			fmt.Println(fmt.Sprintf("\nplayer %v, you have 0 tokens.", turn.name))
@@ -56,7 +56,6 @@ func main(){
 			fmt.Println(fmt.Sprintf("player %v, have %v tokens", p.name, p.tokens))
 		}
 
-
 		// check if any one won the game
 		// exit
 		winner := g.finished()
@@ -79,7 +78,7 @@ type game struct {
 func (g *game) join(playerName string) *player {
 	// create new player
 	p := player{
-		name:  playerName,
+		name:   playerName,
 		tokens: 3,
 	}
 
@@ -96,6 +95,7 @@ func (g *game) join(playerName string) *player {
 
 	return &p
 }
+
 // finished check do we have only one player with Tokens
 // this should be done after every turn
 func (g *game) finished() (p *player) {
@@ -111,18 +111,20 @@ func (g *game) finished() (p *player) {
 	}
 	return
 }
+
 // new init the game
 func new() *game {
 	return &game{}
 }
 
 // player
-type player struct{
-	name string
+type player struct {
+	name   string
 	tokens int
-	right *player
-	left *player
+	right  *player
+	left   *player
 }
+
 // Roll Uses rand to return DiceFace
 func (p *player) rollDice() (result []string) {
 	// find out how many dices we should roll
@@ -152,6 +154,7 @@ func (p *player) rollDice() (result []string) {
 
 	return
 }
+
 // dice
 type dice struct {
 }
