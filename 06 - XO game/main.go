@@ -51,8 +51,7 @@ func main() {
 		// Did someone win
 		for i := 0; i < 3; i++ {
 			// check rows || columns
-			if (xoBoard[i][0] == xoBoard[i][1] && xoBoard[i][1] == xoBoard[i][2] && xoBoard[i][2] == player) ||
-				(xoBoard[0][i] == xoBoard[1][i] && xoBoard[1][i] == xoBoard[2][i] && xoBoard[2][i] == player) {
+			if (xoBoard[i][0] == xoBoard[i][1] && xoBoard[i][1] == xoBoard[i][2] && xoBoard[i][2] == player || (xoBoard[0][i] == xoBoard[1][i] && xoBoard[1][i] == xoBoard[2][i] && xoBoard[2][i] == player) {
 				fmt.Println("Game ended, winner is player:", player)
 				// we use return to exit both for loops and the app
 				return
